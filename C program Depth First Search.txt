@@ -1,0 +1,34 @@
+#include<stdio.h>
+ 
+void DFS(int);
+int A[20][20],visited[20],c;    
+ 
+void main()
+{
+    int a,b;
+    printf("Enter number of vertices:");
+   
+	scanf("%d",&c);
+
+	printf("\nEnter adjecency matrix of the graph:");
+   
+	for(a=0;a<c;a++)
+       for(b=0;b<c;b++)
+			scanf("%d",&A[a][b]);
+ 
+   for(a=0;a<c;a++)
+        visited[a]=0;
+ 
+    DFS(0);
+}
+ 
+void DFS(int a)
+{
+    int b;
+	printf("\n%d",a);
+    visited[a]=1;
+	
+	for(b=0;b<c;b++)
+       if(!visited[b]&&A[a][b]==1)
+            DFS(b);
+}
